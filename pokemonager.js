@@ -8,12 +8,52 @@
     }
     // This should return an array of all the Pokemon that are under a particular weight.
 
-    findUnderWeight(weight) {
-      // Your code here.
-      // ** LIMIT TO THE FIRST 10 POKEMON
-      // We don't want to make too many unnecessary calls to the Pokemon API
-    }
-  }
+    async findUnderWeight(weight) {
+      let resolvePoke = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10`);
+      // console.log(resolvePoke)
+      const pokemons = await resolvePoke.json();
+      console.log('pokemons :', pokemons);
 
-  window.Pokemonager = Pokemonager;
-})();
+      const mPoke
+
+      // const mappedPoke = await pokemons.results.map((pokeInfo) =>{
+      //   return fetch(pokeInfo["url"])
+      // });
+
+      console.log('mappedPoke :', mappedPoke);
+
+     return Promise.all(
+       mappedPoke.json()
+      ).then((pokeResults) =>{
+        // console.log(pokeResults)
+      }) 
+      // console.log(cleanMappedPoke);
+
+
+
+      
+      
+      
+      // Promise.all([
+      //   pokemons.results.map(pokemon => {
+      //     await fetch(pokemon.url)
+      //  })
+
+      // ]).then((someMagicData) => {
+
+      // } )
+      // console.log(someMagicData)     
+    }
+
+
+
+
+
+
+    
+  }
+    window.Pokemonager = Pokemonager;
+  })();
+  
+  // ** LIMIT TO THE FIRST 10 POKEMON
+  // We don't want to make too many unnecessary calls to the Pokemon API
